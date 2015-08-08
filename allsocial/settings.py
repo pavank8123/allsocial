@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -107,6 +108,7 @@ DATABASES = {
     }
 }
 
+DATABASES['default'] =  dj_database_url.config()
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -147,3 +149,9 @@ TWILIO_ACCOUNT_SID = 'AC81b475f15ce9c783efa6fe5f69c9b55b'
 TWILIO_AUTH_TOKEN = '6d2dc0f0a2c5c052707d4901ceab5958'
 
 DJANGO_TWILIO_FORGERY_PROTECTION = False
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
