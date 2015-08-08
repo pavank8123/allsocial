@@ -108,7 +108,7 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] =  dj_database_url.config()
+DATABASES = {'default': dj_database_url.config(default=os.environ['DATABASE_URL'])}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
