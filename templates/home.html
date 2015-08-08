@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+{% load socialaccount %}
+{% providers_media_js %}
+<html>
+<a href='{% provider_login_url "twitter" method="js_sdk" %}'><i class="fa fa-twitter"></i>login</a>
+<a href="{% provider_login_url "facebook" method="js_sdk" %}">Facebook Connect</a>
+</html>
